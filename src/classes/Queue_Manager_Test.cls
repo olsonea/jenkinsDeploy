@@ -1,5 +1,4 @@
 //Comments
-//Adding comments to test Jenkins deployment.
 
 @isTest
 private class Queue_Manager_Test 
