@@ -1,4 +1,4 @@
-//Comments
+//Adding Comments to test Jenkins deployment
 
 @isTest
 private class Queue_Manager_Test 
@@ -137,33 +137,16 @@ private class Queue_Manager_Test
 	{
 		BMCServiceDesk__Problem__c problem = Queue_Manager_TestDataFactory.createProblem();
 		List<Group> queues = [select id from group];
-		Map<Id,Queue_Manager_Mapping__c> queueManagerMap = Queue_Manager_TestDataFactory.getQueueManagerMapByQueueId();
-		
-		Id newQueueId;
-		
-		for(Id queueId :queueManagerMap.keySet())
-		{
-			if(queueId != problem.ownerId)
-			{
-				newQueueId = queueId;
-				break;
-			}
-		}
-		
 		
 		Test.startTest();
-		//problem.ownerId = queues[1].id;
-		problem.ownerId = newQueueId;
-		
-		update problem;
-		
+		problem.ownerId = queues[1].id;
+
 		try
 		{
-			//update problem;
+			update problem;
 		}
 		catch(Exception e)
         {/*TODO: implement errorLogging*/}
-        
 		Test.stopTest();
 		
 		BMCServiceDesk__Problem__c assertProblem = 
