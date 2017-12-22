@@ -33,12 +33,6 @@
 		<sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true"/>
 	</target>
 	
-	<target name="deployUnpackagedTestClass">
-		<sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true"/>
-			<runTest></runTest>
-		</sf:deploy>
-	</target>
-
 <!-- Retrieve the information on all supported metadata type -->
     <target name="describeMetadata">
       <sf:describeMetadata username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}"/>
